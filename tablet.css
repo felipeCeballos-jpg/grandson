@@ -1,0 +1,16 @@
+@media only screen and (max-width: 1080px) {
+  .bear-img {
+    width: 4.103rem;
+    height: 5.4rem;
+  }
+
+  .flower-img {
+    width: 3.608rem;
+    height: 4.728rem;
+  }
+
+  .candy-img {
+    width: 5.989rem;
+    height: 4.483rem;
+  }
+}
