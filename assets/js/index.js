@@ -36,10 +36,8 @@ window.addEventListener('DOMContentLoaded', async () => {
   updateDesign(mqlMobile.matches);
 
   if (main?.complete) {
-    console.log('Height:', main.offsetHeight);
   } else {
     main?.addEventListener('load', () => {
-      console.log('Height:', main.offsetHeight);
     });
   }
 
@@ -89,8 +87,8 @@ pauseVideo.addEventListener('click', () => {
   video.pause();
 });
 
-fullScreenVideo.addEventListener('click', () => {
-  console.log('full screen');
+fullScreenVideo.addEventListener('click', (e) => {
+  e.stopPropagation();
 
   // full screen video
   video.requestFullscreen();

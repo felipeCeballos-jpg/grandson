@@ -41,7 +41,6 @@ export async function updateImages(language) {
   try {
     // Get images sources
     const imageSources = getImageSources(language);
-    console.log(imageSources);
 
     // Collect all elements and prepare loading
     for (const [key, selector] of Object.entries(IMAGE_SELECTORS)) {
