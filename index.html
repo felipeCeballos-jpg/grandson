@@ -34,7 +34,14 @@
         </div>
       </section>
       <section class="video-container">
-        <video class="video-element" src="./assets/video.mp4" muted></video>
+        <video 
+          class="video-element" 
+          preload="metadata" 
+          playsinline 
+          webkit-playsinline
+        >
+        <source src="./assets/video.mp4" type="video/mp4" />
+        </video>
         <button class="video-buttons video-play-button">
           <img
             src="./assets/play.webp"
