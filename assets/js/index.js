@@ -16,6 +16,7 @@ const pauseVideo = document.querySelector('.video-pause-button');
 const fullScreenVideo = document.querySelector('.video-full-screen-button');
 const video = document.querySelector('.video-element');
 const videoContainer = document.querySelector('.video-container');
+const videoThumbnail = document.querySelector('.video-thumbnail');
 
 // Set media queries
 const mqlMobile = window.matchMedia('(max-width: 800px)');
@@ -76,6 +77,10 @@ playVideo.addEventListener('click', () => {
   playVideo.classList.add('hidden-btn');
   pauseVideo.classList.remove('hidden-btn');
 
+  if (videoThumbnail) {
+    videoThumbnail.classList.add('fade-out');
+  }
+
   // play video
   video.play();
 });
@@ -97,4 +102,4 @@ videoContainer.addEventListener('click', (e) => {
   if (!e.target.closest('button')) {
     videoContainer.classList.toggle('show-controls');
   } 
-})
+});
