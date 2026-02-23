@@ -15,6 +15,18 @@
     background-image: url('./assets/comic_babooshka_background_mobile_ru.webp');
   }
 
+  .side-animations {
+    display: none;
+  }
+
+  .cartridge {
+    display: none;
+  }
+
+  .pencil_and_caps {
+    display: none;
+  }
+
   /* FOOTER */
 
   .section-navbook {

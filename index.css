@@ -110,9 +110,6 @@ button {
 .video-container {
   width: var(--tv-screen-width);
   height: var(--tv-screen-height);
-  /* Removed max-width to fix aspect ratio issues when viewport > 1826px.
-     Without capping the background image, capping the video causes misalignment. */
-  /* max-width: var(--tv-screen-max-width); */
   overflow: hidden;
   border-radius: 0.5rem;
   position: absolute;
@@ -152,11 +149,11 @@ button {
 }
 
 .img-video-play {
-  width: 8vw;
+  width: 6vw;
 }
 
 .img-video-pause {
-  width: 4.8vw;
+  width: 3vw;
 }
 
 .img-video-full-screen {
@@ -165,7 +162,7 @@ button {
 
 .video-play-button {
   top: 50%;
-  left: 50%;
+  left: 53%;
   transform: translate(-50%, -50%) scale(1);
 }
 
@@ -188,14 +185,33 @@ button {
   pointer-events: none;
 }
 
+.side-animations {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  pointer-events: none;
+  overflow-y: hidden;
+}
+
 .cartridge {
-  width: 42.438rem;
-  height: 37rem;
+  display: block;
+  position: absolute;
+  width: 39vw;
+  height: auto;
+  left: -26vw;
+  bottom: -8vw;
 }
 
 .pencil_and_caps {
-  width: 21rem;
-  height: 50.625rem;
+  display: block;
+  position: absolute;
+  width: 16vw;
+  height: auto;
+  right: -6vw;
+  bottom: -19vw;
 }
 
 /* FOOTER */
@@ -299,5 +315,31 @@ button {
   }
   to {
     transform: translateY(0);
+  }
+}
+
+.scroll-active-left {
+  animation: 1s linear 0s forwards slideLeft;
+}
+
+.scroll-active-right {
+  animation: 1s linear 0s forwards slideRight;
+}
+
+@keyframes slideLeft {
+  from {
+    transform: translateX(-30%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideRight {
+  from {
+    transform: translateX(30%);
+  }
+  to {
+    transform: translateX(0);
   }
 }

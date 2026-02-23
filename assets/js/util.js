@@ -105,9 +105,13 @@ export function loadImage(image, src) {
 export function sideElementsAnimation() {
   resetAnimation([
     { selector: '.scroll-action-left', animationClass: 'scroll-active-left' },
+    { selector: '.scroll-action-right', animationClass: 'scroll-active-right' },
   ]);
 
-  const elementsToAnimate = [{ selector: '.scroll-action-left', side: 'left' }];
+  const elementsToAnimate = [
+    { selector: '.scroll-action-left', side: 'left' },
+    { selector: '.scroll-action-right', side: 'right' },
+  ];
 
   elementsToAnimate.forEach(({ selector, side }) => {
     document.querySelectorAll(selector).forEach((item) => {

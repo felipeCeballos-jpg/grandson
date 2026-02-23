@@ -43,7 +43,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     });
   }
 
-  //sideElementsAnimation();
+  sideElementsAnimation();
   booksAnimation();
 });
 
@@ -67,7 +67,7 @@ switchLanguageButton.addEventListener('click', async () => {
     checkLoaded(result.timestamp, loader, true, null, 'default');
   });
 
-  //sideElementsAnimation();
+  sideElementsAnimation();
   booksAnimation();
 });
 
