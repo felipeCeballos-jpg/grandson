@@ -139,17 +139,12 @@ button {
     transform 0.3s ease;
 }
 
-.video-container:hover .video-buttons:not(.hidden-btn) {
+.video-container:hover .video-buttons:not(.hidden-btn),
+.video-container.show-controls .video-buttons:not(.hidden-btn) {
   opacity: 1;
   visibility: visible;
 }
 
-@media (hover: none) {
-  .video-buttons:not(.hidden-btn) {
-    opacity: 1;
-    visibility: visible;
-  }
-}
 
 .img-video-buttons {
   object-fit: contain;

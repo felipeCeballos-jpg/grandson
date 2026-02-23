@@ -15,6 +15,7 @@ const playVideo = document.querySelector('.video-play-button');
 const pauseVideo = document.querySelector('.video-pause-button');
 const fullScreenVideo = document.querySelector('.video-full-screen-button');
 const video = document.querySelector('.video-element');
+const videoContainer = document.querySelector('.video-container');
 
 // Set media queries
 const mqlMobile = window.matchMedia('(max-width: 800px)');
@@ -91,3 +92,9 @@ fullScreenVideo.addEventListener('click', () => {
   // full screen video
   video.requestFullscreen();
 });
+
+videoContainer.addEventListener('click', (e) => {
+  if (!e.target.closest('button')) {
+    videoContainer.classList.toggle('show-controls');
+  } 
+})
