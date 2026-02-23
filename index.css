@@ -63,7 +63,7 @@ main {
   background-size: 100% auto;
   background-repeat: no-repeat;
   padding: 0px;
-  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 main:lang(ru) {
@@ -193,7 +193,7 @@ button {
   left: 0;
   z-index: 2;
   pointer-events: none;
-  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 .cartridge {
