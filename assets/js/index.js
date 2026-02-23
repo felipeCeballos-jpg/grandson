@@ -87,9 +87,7 @@ pauseVideo.addEventListener('click', () => {
   video.pause();
 });
 
-fullScreenVideo.addEventListener('click', (e) => {
-  e.stopPropagation();
-
+fullScreenVideo.addEventListener('click', () => {
   // full screen video
   video.requestFullscreen();
 });
