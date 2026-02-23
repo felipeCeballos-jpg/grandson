@@ -136,10 +136,16 @@ export function booksAnimation() {
 
   const footer = document.querySelector('.section-navbook');
   const books = document.querySelector('.menu');
+  let hasBeenOutOfView = false;
+
   const booksObserver = new IntersectionObserver(
     (entries, observer) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
+        if (!entry.isIntersecting) {
+          hasBeenOutOfView = true;
+          return;
+        }
+        if (entry.isIntersecting && hasBeenOutOfView) {
           books.classList.add('menu-active');
           observer.unobserve(entry.target);
         }
@@ -162,5 +168,30 @@ export function resetAnimation(elements) {
     if (element.classList.contains(animationClass)) {
       element.classList.remove(animationClass);
     }
+  });
+}
+
+/** Sets main min-height so the full background image is visible (100% width, proportional height) */
+export function setMainHeightFromBackground(main, isMobile = false) {
+  return new Promise((resolve) => {
+    const lang = getLanguage();
+    const bgFile =
+      lang === 'ru'
+        ? isMobile
+          ? 'comic_babooshka_background_mobile_ru.webp'
+          : 'comic_babooshka_background_ru.webp'
+        : isMobile
+          ? 'comic_babooshka_background_mobile_en.webp'
+          : 'comic_babooshka_background_en.webp';
+    const img = new Image();
+    img.onload = () => {
+      if (main && img.naturalWidth > 0) {
+        const ratio = img.naturalHeight / img.naturalWidth;
+        main.style.minHeight = `calc(100vw * ${ratio})`;
+      }
+      resolve();
+    };
+    img.onerror = () => resolve();
+    img.src = `./assets/${bgFile}`;
   });
 }

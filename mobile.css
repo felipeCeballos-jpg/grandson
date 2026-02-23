@@ -1,0 +1,114 @@
+@media only screen and (max-width: 800px) {
+  :root {
+    --tv-vertical-center: 40.2%;
+    --tv-horizontal-center: 50.25%;
+    --tv-screen-width: 44.5vw;
+    --tv-screen-height: 31vw;
+  }
+
+  main {
+    background-image: url('./assets/comic_babooshka_background_mobile_eng.webp');
+    padding: 0;
+  }
+
+  main:lang(ru) {
+    background-image: url('./assets/comic_babooshka_background_mobile_ru.webp');
+  }
+
+  /* FOOTER */
+
+  .section-navbook {
+    padding-top: 11vmin;
+  }
+
+  .menu {
+    width: 100%;
+    /*  margin-top: 31vmin; */
+    margin-top: 14vmin;
+  }
+
+  .pages {
+    margin-left: -5vmin;
+    bottom: 4px;
+    /* bottom: -21px; */
+  }
+
+  .navbook {
+    max-width: 110vmin;
+    width: 110vmin;
+    margin-left: -9vmin;
+  }
+
+  .pages img {
+    width: 18vmin;
+    height: 100%;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .pages img:hover {
+    width: 18vmin;
+  }
+}
+
+@media only screen and (orientation: landscape) and (max-width: 800px) {
+  /* FOOTER */
+
+  .section-navbook {
+    padding-top: 11vmax;
+  }
+
+  .menu {
+    margin-top: 14vmax;
+  }
+
+  .pages {
+    margin-left: -5vmax;
+  }
+
+  .navbook {
+    max-width: 110vmax;
+    width: 110vmax;
+    margin-left: -9vmax;
+  }
+
+  .pages img {
+    width: 18vmax;
+  }
+
+  .pages img:hover {
+    width: 18vmax;
+  }
+
+  .main {
+    margin: -3vmax 0 0 5vmax;
+  }
+
+  .milestones {
+    margin: 1vmax 0 0 -3vmax;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .stories {
+    margin: -4vmax 0 0 -6vmax;
+    height: 100%;
+  }
+
+  .gallery {
+    margin: 1vmax 0 0 -3vmax;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .my-granny {
+    margin: -4vmax 0 0 -6vmax;
+  }
+
+  .remember {
+    margin: 1.5vmax 0 0 -4vmax;
+  }
+
+  .map {
+    margin: -3vmax 0 0 -3vmax;
+  }
+}

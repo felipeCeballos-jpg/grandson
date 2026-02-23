@@ -5,13 +5,16 @@ import {
   sideElementsAnimation,
   booksAnimation,
   updateDesign,
-  getLanguage,
+  setMainHeightFromBackground,
 } from './util.js';
 
 const switchLanguageButton = document.querySelector('.language-button');
 const html = document.querySelector('html');
 const main = document.querySelector('main');
-console.log(main?.complete);
+const playVideo = document.querySelector('.video-play-button');
+const pauseVideo = document.querySelector('.video-pause-button');
+const fullScreenVideo = document.querySelector('.video-full-screen-button');
+const video = document.querySelector('.video-element');
 
 // Set media queries
 const mqlMobile = window.matchMedia('(max-width: 800px)');
@@ -19,23 +22,6 @@ const mqlDefault = window.matchMedia('(min-width: 801px)');
 
 // Set the loader element
 const loader = document.querySelector('.loader');
-
-/** Sets main min-height so the full background image is visible (100% width, proportional height) */
-function setMainHeightFromBackground() {
-  const lang = getLanguage();
-  const bgFile =
-    lang === 'ru'
-      ? 'comic_babooshka_background_ru.webp'
-      : 'comic_babooshka_background_en.webp';
-  const img = new Image();
-  img.onload = () => {
-    if (main && img.naturalWidth > 0) {
-      const ratio = img.naturalHeight / img.naturalWidth;
-      main.style.minHeight = `calc(100vw * ${ratio})`;
-    }
-  };
-  img.src = `./assets/${bgFile}`;
-}
 
 // Set Language
 initLanguage(html);
@@ -46,7 +32,7 @@ window.addEventListener('load', () => {
 });
 
 window.addEventListener('DOMContentLoaded', async () => {
-  setMainHeightFromBackground();
+  await setMainHeightFromBackground(main, mqlMobile.matches);
   updateDesign(mqlMobile.matches);
 
   if (main?.complete) {
@@ -61,17 +47,51 @@ window.addEventListener('DOMContentLoaded', async () => {
   booksAnimation();
 });
 
-switchLanguageButton.addEventListener('click', () => {
+mqlMobile.addEventListener('change', async (e) => {
+  loader.style.display = 'flex';
+
+  await setMainHeightFromBackground(main, e.matches);
+  updateDesign(e.matches).then((result) => {
+    checkLoaded(result.timestamp, loader, true, null, 'default');
+  });
+});
+
+switchLanguageButton.addEventListener('click', async () => {
   loader.style.display = 'flex';
 
   // Change Language
   setLanguage(html);
 
-  setMainHeightFromBackground();
+  await setMainHeightFromBackground(main, mqlMobile.matches);
   updateDesign(mqlMobile.matches).then((result) => {
     checkLoaded(result.timestamp, loader, true, null, 'default');
   });
 
   //sideElementsAnimation();
   booksAnimation();
+});
+
+pauseVideo.classList.add('hidden-btn');
+
+playVideo.addEventListener('click', () => {
+  playVideo.classList.add('hidden-btn');
+  pauseVideo.classList.remove('hidden-btn');
+
+  // play video
+  video.play();
+});
+
+pauseVideo.addEventListener('click', () => {
+  pauseVideo.classList.add('hidden-btn');
+  playVideo.classList.remove('hidden-btn');
+
+  // pause video
+  video.pause();
+});
+
+fullScreenVideo.addEventListener('click', () => {
+  console.log('full screen');
+
+  // full screen video
+  video.requestFullscreen();
 });

@@ -1,3 +1,12 @@
+:root {
+  --tv-vertical-center: 51.27%;
+  --tv-horizontal-center: 50.25%;
+  --tv-screen-width: 42.7vw;
+  --tv-screen-height: 30.14vw;
+  --tv-screen-max-width: 780px;
+  --tv-aspect-ratio: 4 / 3;
+}
+
 * {
   box-sizing: border-box;
   padding: 0px;
@@ -42,11 +51,6 @@ body .loader img {
 }
 
 main {
-  --tv-vertical-center: 52%;
-  --tv-horizontal-center: 50%;
-  --tv-screen-width: 44vw;
-  --tv-screen-max-width: 850px;
-  --tv-aspect-ratio: 4 / 3;
   width: 100vw;
   min-height: 100vh;
   position: relative;
@@ -58,8 +62,8 @@ main {
   background-position: center top;
   background-size: 100% auto;
   background-repeat: no-repeat;
-  padding: 0px 50px;
-  border: 1px solid blue;
+  padding: 0px;
+  overflow-y: hidden;
 }
 
 main:lang(ru) {
@@ -67,7 +71,6 @@ main:lang(ru) {
 }
 
 .header-container {
-  border: 1px solid red;
   display: flex;
   justify-content: end;
   align-items: center;
@@ -105,28 +108,103 @@ button {
 }
 
 .video-container {
-  /* Match TV inner screen: 16:9, sized to fill screen with visible bezel on all sides */
-  aspect-ratio: var(--tv-aspect-ratio);
   width: var(--tv-screen-width);
-  max-width: var(--tv-screen-max-width);
-  min-width: 0;
-  height: auto;
-  background-color: #3b3a39;
+  height: var(--tv-screen-height);
+  /* Removed max-width to fix aspect ratio issues when viewport > 1826px.
+     Without capping the background image, capping the video causes misalignment. */
+  /* max-width: var(--tv-screen-max-width); */
   overflow: hidden;
-  border-radius: 0.4rem;
-  /* In flow so it participates in main's height; margins create scroll space for footer animation */
-  position: relative;
+  border-radius: 0.5rem;
+  position: absolute;
+  top: var(--tv-vertical-center);
+  left: var(--tv-horizontal-center);
+  transform: translate(-50%, -50%);
   z-index: 1;
-  margin-top: 4rem;
-  margin-bottom: 4rem;
+}
+
+.video-element {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-buttons {
+  position: absolute;
+  height: auto;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease,
+    transform 0.3s ease;
+}
+
+.video-container:hover .video-buttons:not(.hidden-btn) {
+  opacity: 1;
+  visibility: visible;
+}
+
+.img-video-buttons {
+  object-fit: contain;
+}
+
+.img-video-play {
+  width: 8vw;
+}
+
+.img-video-pause {
+  width: 4.8vw;
+}
+
+.img-video-full-screen {
+  width: 4vw;
+}
+
+.video-play-button {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.video-pause-button {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.video-full-screen-button {
+  bottom: -3%;
+  right: -3%;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.video-buttons.hidden-btn {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transform: translate(-50%, -50%) scale(0.8);
+  pointer-events: none;
+}
+
+.cartridge {
+  width: 42.438rem;
+  height: 37rem;
+}
+
+.pencil_and_caps {
+  width: 21rem;
+  height: 50.625rem;
 }
 
 /* FOOTER */
 .section-navbook {
-  width: 100%;
   position: relative;
-  padding-top: 6rem;
+  width: 100%;
+  padding-top: 2rem;
   z-index: 2;
+  overflow: hidden;
 }
 
 .menu {
@@ -146,13 +224,13 @@ button {
   display: flex;
   /* bottom: 15px */
   /*  bottom: -19px; */
-  bottom: 25px;
+  bottom: 7px;
 }
 
 .navbook {
   max-width: 80vw;
   width: 100%;
-  margin-bottom: 0px;
+  margin-bottom: -19px;
   margin-left: -2vmin;
   z-index: 2;
   pointer-events: none;
