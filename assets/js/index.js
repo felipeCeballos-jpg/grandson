@@ -39,8 +39,7 @@ window.addEventListener('DOMContentLoaded', async () => {
 
   if (main?.complete) {
   } else {
-    main?.addEventListener('load', () => {
-    });
+    main?.addEventListener('load', () => {});
   }
 
   sideElementsAnimation();
@@ -95,11 +94,19 @@ pauseVideo.addEventListener('click', () => {
 
 fullScreenVideo.addEventListener('click', () => {
   // full screen video
-  video.requestFullscreen();
+  if (video.requestFullscreen) {
+    video.requestFullscreen();
+  } else if (video.webkitEnterFullscreen) {
+    // iOS Safari
+    video.webkitEnterFullscreen();
+  } else if (video.msRequestFullscreen) {
+    // IE11
+    video.msRequestFullscreen();
+  }
 });
 
 videoContainer.addEventListener('click', (e) => {
   if (!e.target.closest('button')) {
     videoContainer.classList.toggle('show-controls');
-  } 
+  }
 });

@@ -15,6 +15,21 @@
     background-image: url('./assets/comic_babooshka_background_mobile_ru.webp');
   }
 
+  .language-container {
+    height: auto;
+    margin-top: 2vmin;
+    z-index: 2;
+  }
+
+  .language-button {
+    margin-right: 6vmin;
+    right: 40px;
+  }
+
+  .language-selector {
+    width: 79px;
+  }
+
   .side-animations {
     display: none;
   }
@@ -41,8 +56,8 @@
 
   .pages {
     margin-left: -5vmin;
-    bottom: 4px;
-    /* bottom: -21px; */
+    /* bottom: 4px; */
+    bottom: -11px;
   }
 
   .navbook {
@@ -63,6 +78,10 @@
 }
 
 @media only screen and (orientation: landscape) and (max-width: 800px) {
+  .language-container {
+    margin-top: 2vmax;
+  }
+
   /* FOOTER */
 
   .section-navbook {
@@ -75,6 +94,7 @@
 
   .pages {
     margin-left: -5vmax;
+    bottom: -12px;
   }
 
   .navbook {
@@ -92,7 +112,7 @@
   }
 
   .main {
-    margin: -3vmax 0 0 5vmax;
+    margin: -3vmin 0 0 7vmin;
   }
 
   .milestones {

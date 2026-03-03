@@ -1,8 +1,8 @@
 :root {
-  --tv-vertical-center: 51.27%;
+  --tv-vertical-center: 51.32%;
   --tv-horizontal-center: 50.25%;
-  --tv-screen-width: 42.7vw;
-  --tv-screen-height: 30.14vw;
+  --tv-screen-width: 42.5vw;
+  --tv-screen-height: 29.9vw;
   --tv-screen-max-width: 780px;
   --tv-aspect-ratio: 4 / 3;
 }
@@ -137,6 +137,7 @@ button {
     opacity 0.3s ease,
     visibility 0.3s ease,
     transform 0.3s ease;
+  z-index: 11;
 }
 
 .video-container:hover .video-buttons:not(.hidden-btn),
@@ -147,13 +148,11 @@ button {
 
 .video-thumbnail {
   position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   z-index: 10;
-  transition: 
+  transition:
     opacity 0.5s ease,
     visibility 0.5s ease;
   pointer-events: none;
@@ -177,7 +176,7 @@ button {
 }
 
 .img-video-full-screen {
-  width: 4vw;
+  width: 5vw;
 }
 
 .video-play-button {
@@ -196,6 +195,7 @@ button {
   bottom: -3%;
   right: -3%;
   transform: translate(-50%, -50%) scale(1);
+  z-index: 30;
 }
 
 .video-buttons.hidden-btn {
@@ -261,6 +261,13 @@ button {
   /* bottom: 15px */
   /*  bottom: -19px; */
   bottom: 7px;
+}
+
+.pages img {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
 }
 
 .navbook {

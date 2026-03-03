@@ -1,4 +1,12 @@
 @media only screen and (min-width: 801px) and (max-width: 1300px) {
+  .language-container {
+    margin-top: 1rem;
+  }
+
+  .language-selector {
+    width: 109px;
+  }
+
   .cartridge {
     width: 43vw;
     left: -28vw;
@@ -9,6 +17,44 @@
     width: 20vw;
     right: -8vw;
     bottom: -27vw;
+  }
+
+  .pages {
+    bottom: 2px;
+  }
+}
+
+@media only screen and (orientation: landscape) and (min-width: 800px) and (max-width: 1300px) {
+  .language-button {
+    margin-right: 14vmax;
+  }
+
+  .main {
+    margin: -3vmax 0 0 5vmax;
+  }
+
+  .milestones {
+    margin: 1vmax 0 0 -3vmax;
+  }
+
+  .stories {
+    margin: -4vmax 0 0 -6vmax;
+  }
+
+  .gallery {
+    margin: 1vmax 0 0 -3vmax;
+  }
+
+  .my-granny {
+    margin: -4vmax 0 0 -6vmax;
+  }
+
+  .remember {
+    margin: 1.5vmax 0 0 -4vmax;
+  }
+
+  .map {
+    margin: -3vmax 0 0 -3vmax;
   }
 }
 
