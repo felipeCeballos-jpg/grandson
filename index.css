@@ -137,7 +137,7 @@ button {
     opacity 0.3s ease,
     visibility 0.3s ease,
     transform 0.3s ease;
-  z-index: 11;
+  z-index: 30;
 }
 
 .video-container:hover .video-buttons:not(.hidden-btn),
@@ -368,5 +368,13 @@ button {
   }
   to {
     transform: translateX(0);
+  }
+}
+
+
+@media (max-width: 1300px) {
+  .video-buttons:not(.hidden-btn) {
+    opacity: 1;
+    visibility: visible;
   }
 }
