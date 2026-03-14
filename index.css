@@ -19,6 +19,13 @@ body {
   overflow-x: hidden;
 }
 
+img {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+}
+
 .loader {
   position: fixed;
   top: 0;
@@ -370,7 +377,6 @@ button {
     transform: translateX(0);
   }
 }
-
 
 @media (max-width: 1300px) {
   .video-buttons:not(.hidden-btn) {
